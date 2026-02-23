@@ -1,0 +1,18 @@
+# Online Exam Result Processor
+
+scores = [25, 35, 60, 45, 30, 80, 20, 50]
+
+# Remove lowest 2 scores
+scores.sort()
+processed_scores = scores[2:]
+
+# Add grace marks
+for i in range(len(processed_scores)):
+    if 30 <= processed_scores[i] <= 35:
+        processed_scores[i] += 5
+
+# Count passed students
+passed = len([s for s in processed_scores if s >= 40])
+
+print("Final Scores:", processed_scores)
+print("Number of Students Passed:", passed)

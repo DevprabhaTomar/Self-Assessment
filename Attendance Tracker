@@ -1,0 +1,21 @@
+# Attendance Tracker
+
+attendance = [1, 1, 0, 0, 1, 0, 1, 1, 0, 0]
+
+total_days = len(attendance)
+present_days = attendance.count(1)
+
+attendance_percentage = (present_days / total_days) * 100
+
+print("Attendance Percentage:", round(attendance_percentage, 2), "%")
+
+if attendance_percentage < 75:
+    print("Warning: Attendance below 75%")
+
+# Replace consecutive absences with warning flag (-1)
+for i in range(len(attendance) - 1):
+    if attendance[i] == 0 and attendance[i+1] == 0:
+        attendance[i] = -1
+        attendance[i+1] = -1
+
+print("Updated Attendance Record:", attendance)
